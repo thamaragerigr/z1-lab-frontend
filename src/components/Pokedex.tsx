@@ -43,7 +43,7 @@ const Pokedex: React.FC = () => {
       <Pokeball>
         <img src={PokeballSvg} alt="Pokeball" />
       </Pokeball>
-      {load && "Loading...🔮"}
+      {load && <Loading>Loading... 🔮</Loading>}
       <CardWrapper>
         {pokemons.map((pokemon, index) => (
           <PokeCard
@@ -60,11 +60,19 @@ const Pokedex: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  position: relative;
   font-family: Helvetica;
   padding: 1rem;
   margin: 0 auto;
   max-width: 24.5rem;
-  position: relative;
+`;
+
+const Loading = styled.div`
+  color: #d4d4d4;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem 0rem;
+  font-size: 1.5rem;
 `;
 
 const CardWrapper = styled.div`
@@ -74,10 +82,10 @@ const CardWrapper = styled.div`
 `;
 
 const Title = styled.h1`
+  color: #303943;
   font-weight: normal;
   padding: 1.5rem 0rem;
-  font-size: 30px;
-  color: #303943;
+  font-size: 2rem;
 `;
 
 const Pokeball = styled.div`
