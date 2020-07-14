@@ -37,13 +37,13 @@ const Pokedex: React.FC = () => {
   if (error) console.log(error);
 
   return (
-    <$Wrapper>
-      <$Title>Pokedex</$Title>
-      <$Pokeball>
+    <Wrapper>
+      <Title>Pokedex</Title>
+      <Pokeball>
         <img src={PokeballSvg} alt="Pokeball" />
-      </$Pokeball>
-      {load && "Loading..."}
-      <$CardWrapper>
+      </Pokeball>
+      {load && "Loading...🔮"}
+      <CardWrapper>
         {pokemons.map((pokemon, index) => (
           <PokeCard
             key={pokemon.name}
@@ -53,12 +53,12 @@ const Pokedex: React.FC = () => {
             image={pokemon.sprites.front_default}
           />
         ))}
-      </$CardWrapper>
-    </$Wrapper>
+      </CardWrapper>
+    </Wrapper>
   );
 };
 
-const $Wrapper = styled.div`
+const Wrapper = styled.div`
   font-family: Helvetica;
   padding: 1rem;
   margin: 0 auto;
@@ -66,20 +66,20 @@ const $Wrapper = styled.div`
   position: relative;
 `;
 
-const $CardWrapper = styled.div`
+const CardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `;
 
-const $Title = styled.h1`
+const Title = styled.h1`
   font-weight: normal;
   padding: 1.5rem 0rem;
   font-size: 30px;
   color: #303943;
 `;
 
-const $Pokeball = styled.div`
+const Pokeball = styled.div`
   position: absolute;
   right: 0;
   top: 0;

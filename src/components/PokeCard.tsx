@@ -6,23 +6,23 @@ import { Props } from "../types/types";
 const PokeCard: React.FC<Props> = (props) => {
   return (
     <div>
-      <$Card>
-        <$CardNumber>#00{props.number}</$CardNumber>
-        <$CardTitle>{props.name}</$CardTitle>
-        <$CardContent>
+      <Card>
+        <CardNumber>#00{props.number}</CardNumber>
+        <CardTitle>{props.name}</CardTitle>
+        <CardContent>
           <div>
             {props.types.map((i) => (
-              <$PokemonType key={i.type.name}>{i.type.name}</$PokemonType>
+              <PokemonType key={i.type.name}>{i.type.name}</PokemonType>
             ))}
           </div>
           <img src={props.image} alt={props.name} />
-        </$CardContent>
-      </$Card>
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
-const $Card = styled.div`
+const Card = styled.div`
   margin-right: 0.5rem;
   margin-bottom: 1rem;
   width: 9.5rem;
@@ -36,14 +36,14 @@ const $Card = styled.div`
   position: relative;
 `;
 
-const $CardTitle = styled.h2`
+const CardTitle = styled.h2`
   color: #4f4f4f;
   font-weight: bold;
   font-size: 0.9rem;
   text-transform: capitalize;
 `;
 
-const $CardNumber = styled.p`
+const CardNumber = styled.p`
   color: #828282;
   font-weight: bold;
   font-size: 0.9rem;
@@ -53,13 +53,13 @@ const $CardNumber = styled.p`
   right: 1rem;
 `;
 
-const $CardContent = styled.div`
+const CardContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 0;
 `;
 
-const $PokemonType = styled.p`
+const PokemonType = styled.p`
   color: #4f4f4f;
   font-weight: bolder;
   font-size: 6px;
@@ -67,6 +67,7 @@ const $PokemonType = styled.p`
   border-radius: 8px;
   text-transform: uppercase;
   padding: 0.2rem 0.4rem;
+  align-self: flex-end;
 `;
 
 export default PokeCard;
