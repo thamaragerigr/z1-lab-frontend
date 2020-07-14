@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import PokeballSvg from "../assets/PokeCard/pokeballCard.svg";
+import { padNumber } from '../utils/PokeCard';
 import { Props } from "../types/types";
 
 const PokeCard: React.FC<Props> = (props) => {
   return (
     <div>
       <Card>
-        <CardNumber>#00{props.number}</CardNumber>
+        <CardNumber>#{padNumber( props.number+ 1)}</CardNumber>
         <CardTitle>{props.name}</CardTitle>
         <CardContent>
           <div>

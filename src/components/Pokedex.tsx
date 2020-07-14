@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import PokeballSvg from "../assets/Pokedex/pokeball.svg";
+import { PokemonInitialRequest } from "../types/types";
 import PokeCard from "./PokeCard";
 
 const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/?limit=10";
@@ -11,15 +12,15 @@ const Pokedex: React.FC = () => {
   const [result, setResult] = useState<any[]>([]);
   const [load, setLoad] = useState(true);
 
-  const arr: { name: string; url: string }[] = [];
+  const arr: PokemonInitialRequest[] = [];
 
   const { isLoading, error } = useQuery("pokemonData", () =>
     fetch(POKEMON_API)
       .then((response) => response.json())
       .then((data) =>
         setResult(
-          data.results.map((item: { name: string; url: string }) => {
-            fetch(item.url)
+          data.results.map((pokemon: PokemonInitialRequest) => {
+            fetch(pokemon.url)
               .then((response) => response.json())
               .then((allPokemons) => arr.push(allPokemons));
             setPokemons(arr);
@@ -31,7 +32,7 @@ const Pokedex: React.FC = () => {
   if (isLoading) {
     setTimeout(() => {
       setLoad(false);
-    }, 1500);
+    }, 500);
   }
 
   if (error) console.log(error);
