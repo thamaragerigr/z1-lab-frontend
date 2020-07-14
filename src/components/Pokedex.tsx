@@ -9,7 +9,6 @@ const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/?limit=10";
 
 const Pokedex: React.FC = () => {
   const [pokemons, setPokemons] = useState<any[]>([]);
-  const [result, setResult] = useState<any[]>([]);
   const [load, setLoad] = useState(true);
 
   const arr: PokemonInitialRequest[] = [];
@@ -18,14 +17,12 @@ const Pokedex: React.FC = () => {
     fetch(POKEMON_API)
       .then((response) => response.json())
       .then((data) =>
-        setResult(
-          data.results.map((pokemon: PokemonInitialRequest) => {
-            fetch(pokemon.url)
-              .then((response) => response.json())
-              .then((allPokemons) => arr.push(allPokemons));
-            setPokemons(arr);
-          })
-        )
+        data.results.forEach((pokemon: PokemonInitialRequest) => {
+          fetch(pokemon.url)
+            .then((response) => response.json())
+            .then((allPokemons) => arr.push(allPokemons));
+          setPokemons(arr);
+        })
       )
   );
 
@@ -43,7 +40,14 @@ const Pokedex: React.FC = () => {
       <Pokeball>
         <img src={PokeballSvg} alt="Pokeball" />
       </Pokeball>
-      {load && <Loading>Loading... 🔮</Loading>}
+      {load && (
+        <Loading>
+          Loading...{" "}
+          <span role="img" aria-label="loading">
+            🔮
+          </span>
+        </Loading>
+      )}
       <CardWrapper>
         {pokemons.map((pokemon, index) => (
           <PokeCard
