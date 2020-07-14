@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
+import PokeballSvg from "../assets/Pokedex/pokeball.svg";
 import PokeCard from "./PokeCard";
-import PokeballSvg from "./pokeball.svg";
 
 const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/?limit=10";
 
@@ -11,7 +11,7 @@ const Pokedex: React.FC = () => {
   const [result, setResult] = useState<any[]>([]);
   const [load, setLoad] = useState(true);
 
-  const arr: any[] = [];
+  const arr: { name: string; url: string }[] = [];
 
   const { isLoading, error } = useQuery("pokemonData", () =>
     fetch(POKEMON_API)

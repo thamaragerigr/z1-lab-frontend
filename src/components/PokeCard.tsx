@@ -1,12 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
-interface Props {
-  name: string;
-  number?: number;
-  types: any[];
-  image: string;
-}
+import { Props } from '../types/types'
+import PokeballSvg from "../assets/PokeCard/pokeballCard.svg";
 
 const PokeCard: React.FC<Props> = (props) => {
   return (
@@ -21,6 +16,7 @@ const PokeCard: React.FC<Props> = (props) => {
             ))}
           </div>
           <img src={props.image} alt={props.name} />
+          <img src={PokeballSvg} alt="Pokeball"/>
         </CardContent>
       </Card>
     </div>
