@@ -1,38 +1,10 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
-import { ReactQueryDevtools } from "react-query-devtools";
 import styled from "styled-components";
 import PokeCard from "./PokeCard";
 import PokeballSvg from "./pokeball.svg";
 
 const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/?limit=10";
-
-const Wrapper = styled.div`
-  font-family: Helvetica;
-  padding: 1rem;
-  margin: 0 auto;
-  max-width: 23.5rem;
-  position: relative;
-`;
-
-const CardWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
-
-const Title = styled.h1`
-  font-weight: normal;
-  padding: 1.5rem 0rem;
-  font-size: 30px;
-`;
-
-const Pokeball = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-`;
 
 const Pokedex: React.FC = () => {
   const [pokemons, setPokemons] = useState<any[]>([]);
@@ -59,7 +31,7 @@ const Pokedex: React.FC = () => {
   if (isLoading) {
     setTimeout(() => {
       setLoad(false);
-    }, 1000);
+    }, 1500);
   }
 
   if (error) console.log(error);
@@ -72,12 +44,45 @@ const Pokedex: React.FC = () => {
       </Pokeball>
       {load && "Loading..."}
       <CardWrapper>
-        {pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.name} pokemonDetails={{ pokemon }} />
+        {pokemons.map((pokemon, index) => (
+          <PokeCard
+            key={pokemon.name}
+            name={pokemon.name}
+            number={index}
+            types={pokemon.types}
+            image={pokemon.sprites.front_default}
+          />
         ))}
       </CardWrapper>
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  font-family: Helvetica;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 24rem;
+  position: relative;
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+const Title = styled.h1`
+  font-weight: normal;
+  padding: 1.5rem 0rem;
+  font-size: 30px;
+`;
+
+const Pokeball = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+`;
 
 export default Pokedex;
