@@ -29,7 +29,7 @@ const Pokedex: React.FC = () => {
   if (isLoading) {
     setTimeout(() => {
       setLoad(false);
-    }, 500);
+    }, 1000);
   }
 
   if (error) console.log(error);
