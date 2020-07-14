@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import PokeballSvg from "../assets/PokeCard/pokeballCard.svg";
-import { padNumber } from '../utils/PokeCard';
+import { padNumber } from '../utils/PadNumber';
 import { Props } from "../types/types";
 
 const PokeCard: React.FC<Props> = (props) => {
   return (
     <div>
       <Card>
-        <CardNumber>#{padNumber( props.number+ 1)}</CardNumber>
+        <CardNumber>#{padNumber( props.number + 1 )}</CardNumber>
         <CardTitle>{props.name}</CardTitle>
-        <CardContent>
-          <div>
-            {props.types.map((i) => (
-              <PokemonType key={i.type.name}>{i.type.name}</PokemonType>
+        <div>
+          <PokeTypeWrapper>
+            {props.types.map((index) => (
+              <PokemonType key={index.type.name}>{index.type.name}</PokemonType>
             ))}
-          </div>
-          <img src={props.image} alt={props.name} />
-        </CardContent>
+          </PokeTypeWrapper>
+          <img src={props.image} alt={props.name} style={{ position: "absolute", right: "1rem" }} />
+        </div>
       </Card>
     </div>
   );
@@ -54,10 +54,12 @@ const CardNumber = styled.p`
   right: 1rem;
 `;
 
-const CardContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0;
+const PokeTypeWrapper = styled.div`
+  position: absolute;
+  bottom: 1rem;
+  display: flex; 
+  flex-direction: column-reverse;
+  align-content: flex-start;
 `;
 
 const PokemonType = styled.p`
@@ -69,6 +71,7 @@ const PokemonType = styled.p`
   text-transform: uppercase;
   padding: 0.2rem 0.4rem;
   align-self: flex-end;
+  align-self: flex-start;
 `;
 
 export default PokeCard;
