@@ -42,7 +42,7 @@ const Pokedex: React.FC = () => {
       </Pokeball>
       {load && (
         <Loading>
-          Loading...{" "}
+          <p>Loading...</p>
           <span role="img" aria-label="loading">
             🔮
           </span>

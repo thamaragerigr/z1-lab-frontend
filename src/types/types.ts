@@ -9,5 +9,3 @@ export interface Props {
   types: any[];
   image: string;
 }
-
-

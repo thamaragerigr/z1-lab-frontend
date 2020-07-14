@@ -7,6 +7,6 @@ const App: React.FC = () => {
       <Pokedex />
     </div>
   );
-}
+};
 
 export default App;
