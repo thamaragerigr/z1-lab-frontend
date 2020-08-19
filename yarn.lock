@@ -8529,10 +8529,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-query-devtools@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-query-devtools/-/react-query-devtools-2.3.0.tgz#26b198965a3d2e4066c70963ae2d34634062a847"
-  integrity sha512-f3MJIxlja6+UwTcBP8kOzdNLd23nmeBEzLMMiJyjAEo6tBNrvPkhJTBZkD8nHv76gcnQf6guEnHyxe14M1BRwA==
+react-query-devtools@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/react-query-devtools/-/react-query-devtools-2.4.3.tgz#41d3d09b5670edc858c952ad35a0f14d6d8860fa"
+  integrity sha512-AzfFuozv4GL//cwY7FH9GzG3YN6GgLN+qQuPUuNus6dzXzp1GxJRgvtX+CcjJeQ2dLIgUm8JnKW3vDQJyedWQA==
   dependencies:
     match-sorter "^4.1.0"
 
